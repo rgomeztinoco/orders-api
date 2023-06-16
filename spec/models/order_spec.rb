@@ -10,13 +10,14 @@ RSpec.describe Order do
     it { is_expected.to validate_presence_of(:payment_status) }
 
     it "validates inclusion of status" do
-      expect(order).to validate_inclusion_of(:status).in_array(Order::STATUSES)
+      expect(order)
+        .to validate_inclusion_of(:status).in_array(Order::STATUSES.values)
     end
 
     it "validates inclusion of payment_status" do
       expect(order)
         .to(validate_inclusion_of(:payment_status)
-              .in_array(Order::PAYMENT_STATUSES))
+              .in_array(Order::PAYMENT_STATUSES.values))
     end
   end
 

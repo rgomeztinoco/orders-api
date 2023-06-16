@@ -3,18 +3,27 @@ class Order < ApplicationRecord
   belongs_to :user
 
   # Constants
-  PAYMENT_STATUSES = ["pagada", "no pagada", "pendiente de pago"].freeze
-  STATUSES = ["recibida", "en preparación", "en reparto", "entregada"].freeze
+  PAYMENT_STATUSES = {
+    paid: "pagada",
+    unpaid: "no pagada",
+    pending: "pendiente de pago"
+  }.freeze
+  STATUSES = {
+    received: "recibida",
+    preparing: "en preparación",
+    delivering: "en reparto",
+    delivered: "entregada"
+  }.freeze
 
   # Validations
   validates :amount, presence: true, numericality: { greater_than: 0 }
-  validates :status, presence: true, inclusion: { in: STATUSES }
+  validates :status, presence: true, inclusion: { in: STATUSES.values }
   validates :payment_status, presence: true,
-                             inclusion: { in: PAYMENT_STATUSES }
+                             inclusion: { in: PAYMENT_STATUSES.values }
 
   # Methods
   def paid?
-    payment_status == "pagada"
+    payment_status == PAYMENT_STATUSES[:paid]
   end
 
   def payment_status=(value)
@@ -23,7 +32,7 @@ class Order < ApplicationRecord
   end
 
   def delivered?
-    status == "entregada"
+    status == STATUSES[:delivered]
   end
 
   def status=(value)
