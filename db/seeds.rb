@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "faker"
+
+10.times do
+  User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+  )
+end
+
+10.times do
+  Order.create(
+    user: User.all.sample,
+    amount: Faker::Number.decimal(l_digits: 3, r_digits: 2),
+    payment_status: Order::PAYMENT_STATUSES.values.sample,
+    status: Order::STATUSES.values.sample
+  )
+end
