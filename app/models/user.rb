@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Associations
-  has_many :orders
+  has_many :orders, dependent: :nullify
 
   # Validations
   validates :email, presence: true
