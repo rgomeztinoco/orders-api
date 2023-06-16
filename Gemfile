@@ -41,6 +41,15 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   # Use rubocop-rails to enforce Rails best practices
   gem "rubocop-rails", require: false
+  # Use rspec for testing
+  gem "rspec-rails", "~> 6.0.0"
+end
+
+group :test do
+  gem "database_cleaner-active_record"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "shoulda-matchers"
 end
 
 group :development do
