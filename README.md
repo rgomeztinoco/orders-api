@@ -1,24 +1,17 @@
-# README
+# [name] project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+- First run `bundle install` to install the dependencies
+- Create the DB and populate it `rails db:setup`
+- Run the tests `rspec`
+- To start the server use `rails server`
 
-* Ruby version
+## Development
 
-* System dependencies
+This proyect uses:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- gitmoji to add emojis to commit messages and make them more readable https://github.com/carloscuesta/gitmoji (there is also a VScode [plugin](https://marketplace.visualstudio.com/items?itemName=seatonjiang.gitmoji-vscode))
+- rubocop to ensure best prectices, read more about the style guides here [![Rails Style Guide](https://img.shields.io/badge/code_style-rails-brightgreen.svg)](https://rails.rubystyle.guide) [![Rails Style Guide](https://img.shields.io/badge/code_style-rspec-brightgreen.svg)](https://rspec.rubystyle.guide/)
+- [rspec](http://rspec.info/) to use BDD and TDD to develop the app
+- [better comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) to add colors to comments and make them more readable
