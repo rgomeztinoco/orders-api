@@ -36,8 +36,8 @@ HasAndBelongsToMany:
   Enabled: false
 
 Layout/LineLength:
-  Max: 100
-  IgnoredPatterns: ['\s*#']
+  Max: 80
+  AllowedPatterns: ['\s*#']
 
 Metrics/BlockLength:
   Exclude:
